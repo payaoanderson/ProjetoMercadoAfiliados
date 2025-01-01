@@ -1,0 +1,443 @@
+/* Resetando estilos padrões */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Corpo e fundo */
+body {
+    font-family: 'Helvetica Neue', sans-serif;
+    background-color: #f0f4f8;
+    color: #2d3436;
+    line-height: 1.6;
+    padding: 20px;
+}
+
+/* Container principal */
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 30px;
+    padding-top: 40px;
+}
+
+.container{
+    width: 200px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    transition: transform 0.3s ease;
+}
+
+.container img:hover{
+    transform: scale(1.1);
+}
+
+.bloco1{
+    background-color: #2d3436;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.bloco1 h2{
+    justify-content: center;
+    margin-left: 300px;
+}
+.bloco2{
+    background-color: #2d3436;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.bloco2 h2{
+    justify-content: center;
+    margin-left: 445px;
+}
+
+/* Estilo para as imagens */
+.img1,
+.img2,
+.img3,
+.img4,
+.img5,
+.img6, 
+.img7,
+.img8,
+.img9,
+.img10,
+.img11,
+.img12,
+.img13,
+.img14,
+.img15,
+.img16,
+.img17,
+.img18,
+.img19,
+.img20,
+.img21,
+.img22,
+.img23,
+.img24 {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
+    padding: 10px;
+    border-radius: 8px;
+    background: linear-gradient(145deg, #ffffff, #e0e0e0);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.img1 img,
+.img2 img,
+.img3 img,
+.img4 img,
+.img5 img,
+.img6 img, 
+.img7 img,
+.img8 img,
+.img9 img,
+.img10 img,
+.img11 img,
+.img12 img,
+.img13 img,
+.img14 img,
+.img15 img,
+.img16 img,
+.img17 img,
+.img18 img,
+.img19 img,
+.img20 img,
+.img21 img,
+.img22 img,
+.img23 img,
+.img24 img {
+    width: 150px;
+    height: auto;
+    border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.img1 img:hover,
+.img2 img:hover,
+.img3 img:hover,
+.img4 img:hover,
+.img5 img:hover,
+.img6 img:hover, 
+.img7 img:hover,
+.img8 img:hover,
+.img9 img:hover,
+.img10 img:hover,
+.img11 img:hover,
+.img12 img:hover,
+.img13 img:hover,
+.img14 img:hover,
+.img15 img:hover,
+.img16 img:hover,
+.img17 img:hover,
+.img18 img:hover,
+.img19 img:hover,
+.img20 img:hover,
+.img21 img:hover,
+.img22 img:hover,
+.img23 img:hover,
+.img24 img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* Texto do produto */
+.texto1,
+.texto2,
+.texto3,
+.texto4,
+.texto5,
+.texto6,
+.texto7,
+.texto8,
+.texto9,
+.texto10,
+.texto11,
+.texto12,
+.texto13,
+.texto14,
+.texto15,
+.texto16,
+.texto17,
+.texto18,
+.texto19,
+.texto20,
+.texto21,
+.texto22,
+.texto23,
+.texto24 {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.texto1 h5,
+.texto2 h5,
+.texto3 h5,
+.texto4 h5,
+.texto5 h5,
+.texto6 h5,
+.texto7 h5,
+.texto8 h5,
+.texto9 h5,
+.texto10 h5,
+.texto11 h5,
+.texto12 h5,
+.texto13 h5,
+.texto14 h5,
+.texto15 h5,
+.texto16 h5,
+.texto17 h5,
+.texto18 h5,
+.texto19 h5,
+.texto20 h5,
+.texto21 h5,
+.texto22 h5,
+.texto23 h5,
+.texto24 h5 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #2d3436;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.descricao1,
+.descricao2,
+.descricao5,
+.descricao6,
+.descricao7 {
+    font-size: 1rem;
+    color: #7f8c8d;
+    line-height: 1.6;
+    margin-top: 10px;
+    font-style: italic;
+}
+
+/* Botões de compra */
+.Comprar1 a,
+.Comprar2 a,
+.Comprar3 a,
+.Comprar4 a,
+.Comprar5 a,
+.Comprar6 a,
+.Comprar7 a,
+.Comprar8 a,
+.Comprar9 a,
+.Comprar10 a,
+.Comprar11 a,
+.Comprar12 a,
+.Comprar13 a,
+.Comprar14 a,
+.Comprar15 a,
+.Comprar16 a,
+.Comprar17 a,
+.Comprar18 a,
+.Comprar19 a,
+.Comprar20 a,
+.Comprar21 a,
+.Comprar22 a,
+.Comprar23 a,
+.Comprar24 a {
+    display: inline-block;
+    background-color: #ff6b6b;
+    color: white;
+    padding: 12px 25px;
+    font-size: 1.1rem;
+    text-decoration: none;
+    border-radius: 25px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    margin-top: 15px;
+}
+
+.Comprar1 a:hover,
+.Comprar2 a:hover,
+.Comprar3 a:hover,
+.Comprar4 a:hover,
+.Comprar5 a:hover,
+.Comprar6 a:hover,
+.Comprar7 a:hover,
+.Comprar8 a:hover,
+.Comprar9 a:hover,
+.Comprar10 a:hover,
+.Comprar11 a:hover,
+.Comprar12 a:hover,
+.Comprar13 a:hover,
+.Comprar14 a:hover,
+.Comprar15 a:hover,
+.Comprar16 a:hover,
+.Comprar17 a:hover,
+.Comprar18 a:hover,
+.Comprar19 a:hover,
+.Comprar20 a:hover,
+.Comprar21 a:hover,
+.Comprar22 a:hover,
+.Comprar23 a:hover,
+.Comprar24 a:hover {
+    background-color: #e74c3c;
+    transform: scale(1.05);
+}
+
+.Comprar1 a:active,
+.Comprar2 a:active,
+.Comprar3 a:active,
+.Comprar4 a:active,
+.Comprar5 a:active,
+.Comprar6 a:active,
+.Comprar7 a:active,
+.Comprar8 a:active,
+.Comprar9 a:active,
+.Comprar10 a:active,
+.Comprar11 a:active,
+.Comprar12 a:active,
+.Comprar13 a:active,
+.Comprar14 a:active,
+.Comprar15 a:active,
+.Comprar16 a:active,
+.Comprar17 a:active,
+.Comprar18 a:active,
+.Comprar19 a:active,
+.Comprar20 a:active,
+.Comprar21 a:active,
+.Comprar22 a:active,
+.Comprar23 a:active,
+.Comprar24 a:active {
+    background-color: #c0392b;
+}
+
+/* Rodapé */
+.rodape {
+    text-align: center;
+    margin-top: 50px;
+    padding: 20px;
+    background-color: #2c3e50;
+    color: white;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    border-radius: 8px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.politica {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.politica a {
+    color: #ff6b6b;
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.politica a:hover {
+    color: #e74c3c;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    main {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .img1,
+    .img2,
+    .img3,
+    .img4,
+    .img5,
+    .img6,
+    .img7,
+    .img8,
+    .img9,
+    .img10,
+    .img11,
+    .img12,
+    .img13,
+    .img14,
+    .img15,
+    .img16,
+    .img17,
+    .img18,
+    .img19,
+    .img20,
+    .img21,
+    .img22,
+    .img23,
+    .img24 {
+        width: 80%;
+        margin-bottom: 20px;
+    }
+
+    .texto1,
+    h5 .texto2 h5,
+    .texto3 h5,
+    .texto4 h5,
+    .texto5 h5,
+    .texto6 h5,
+    .texto7 h5,
+    .texto8 h5,
+    .texto9 h5,
+    .texto10 h5,
+    .texto11 h5,
+    .texto12 h5,
+    .texto13 h5,
+    .texto14 h5,
+    .texto15 h5,
+    .texto16 h5,
+    .texto17 h5,
+    .texto18 h5,
+    .texto19 h5,
+    .texto20 h5,
+    .texto21 h5,
+    .texto22 h5,
+    .texto23 h5,
+    .texto24 h5 {
+        font-size: 1.1rem;
+    }
+
+    .Comprar1 a,
+    .Comprar2 a,
+    .Comprar3 a,
+    .Comprar4 a,
+    .Comprar5 a,
+    .Comprar6 a,
+    .Comprar6 a,
+    .Comprar7 a,
+    .Comprar8 a,
+    .Comprar9 a,
+    .Comprar10 a,
+    .Comprar11 a,
+    .Comprar12 a,
+    .Comprar13 a,
+    .Comprar14 a,
+    .Comprar15 a,
+    .Comprar16 a,
+    .Comprar17 a,
+    .Comprar18 a,
+    .Comprar19 a,
+    .Comprar20 a,
+    .Comprar21 a,
+    .Comprar22 a,
+    .Comprar23 a,
+    .Comprar24 a {
+        font-size: 1rem;
+        padding: 10px 20px;
+    }
+
+    .rodape {
+        font-size: 0.8rem;
+    }
+}
