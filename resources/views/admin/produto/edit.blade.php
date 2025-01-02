@@ -2,30 +2,50 @@
 
 @section('content')
 <div class="container">
-    <h1>Editar Produto</h1>
+    <link rel="stylesheet" href="./css/main.css">
+    <h1 class="my-4">Editar Produto</h1>
+
+    <!-- Exibindo mensagens de erro -->
+    @if($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
 
     <form action="{{ route('admin.produto.update', $produto->id) }}" method="POST">
         @csrf
         @method('PUT')
-        <div class="form-group">
-            <label for="nome">Nome</label>
-            <input type="text" name="nome" id="nome" class="form-control" value="{{ old('nome', $produto->nome) }}" required>
+
+        <!-- Nome -->
+        <div class="mb-3">
+            <label for="nome" class="form-label">Nome:</label>
+            <input type="text" name="nome" value="{{ old('nome', $produto->nome) }}" class="form-control" required placeholder="Nome">
         </div>
 
-        <div class="form-group">
-            <label for="descricao">Descrição</label>
-            <textarea name="descricao" id="descricao" class="form-control">{{ old('descricao', $produto->descricao) }}</textarea>
+        <!-- Descrição -->
+        <div class="mb-3">
+            <label for="descricao" class="form-label">Descrição:</label>
+            <textarea name="descricao" placeholder="Descrição" class="form-control" rows="4">{{ old('descricao', $produto->descricao) }}</textarea>
         </div>
 
-        <div class="form-group">
-            <label for="comprar">Disponível para Compra</label>
-            <select name="comprar" id="comprar" class="form-control">
-                <option value="1" {{ old('comprar', $produto->comprar) == 1 ? 'selected' : '' }}>Sim</option>
-                <option value="0" {{ old('comprar', $produto->comprar) == 0 ? 'selected' : '' }}>Não</option>
-            </select>
+        <!-- Preço -->
+        <div class="mb-3">
+            <label for="preco" class="form-label">Preço:</label>
+            <input type="number" name="preco" value="{{ old('preco', $produto->preco) }}" class="form-control" step="0.01" required placeholder="Preço">
         </div>
 
-        <button type="submit" class="btn btn-primary mt-3">Salvar Alterações</button>
+        <!-- Quantidade -->
+        <div class="mb-3">
+            <label for="quantidade" class="form-label">Quantidade:</label>
+            <input type="number" name="quantidade" value="{{ old('quantidade', $produto->quantidade) }}" class="form-control" required placeholder="Quantidade">
+        </div>
+
+        <!-- Botão de salvar -->
+        <button type="submit" class="btn btn-primary">Salvar Alterações</button>
     </form>
 </div>
 @endsection

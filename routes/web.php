@@ -6,12 +6,17 @@ use App\Http\Controllers\UsuarioController;
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProdutoController;
+use App\Http\Controllers\SaleController;
+use App\Http\Controllers\DashboardController;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 Route::get('/', [PaginaEstaticasController::class, 'welcome'])->name("welcome");
 
 // Rota corrigida
 Route::get('/politica', [PaginaEstaticasController::class, 'index'])->name("politica");
+
+
+Route::get('/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
 
 Route::get('/usuarios', [UsuarioController::class, 'index'])->name('admin.usuarios.index');
 Route::get('/usuarios/criar', [UsuarioController::class, 'create'])->name('admin.usuarios.create');
@@ -30,7 +35,13 @@ Route::put('/produtos/{produto}', [ProdutoController::class, 'update'])->name('a
 Route::delete('/produtos/{produto}', [ProdutoController::class, 'destroy'])->name('admin.produto.destroy');
 
 
-
+Route::get('/vendas', [SaleController::class, 'index'])->name('admin.sales.index');
+Route::get('/vendas/create', [SaleController::class, 'create'])->name('admin.sales.create');
+Route::post('/vendas', [SaleController::class, 'store'])->name('admin.sales.store');
+Route::get('admin/sales/{sale}', [SaleController::class, 'show'])->name('admin.sales.show');
+Route::get('/vendas/{sale}/edit', [SaleController::class, 'edit'])->name('admin.sales.edit');
+Route::put('/vendas/{sale}', [SaleController::class, 'update'])->name('admin.sales.update');
+Route::delete('/vendas/{sale}', [SaleController::class, 'destroy'])->name('admin.sales.destroy');
 
 
 

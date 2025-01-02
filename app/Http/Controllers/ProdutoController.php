@@ -27,19 +27,22 @@ class ProdutoController extends Controller
         $validatedData = $request->validate([
             'nome' => 'required|string|max:255',
             'descricao' => 'nullable|string',
-            'comprar' => 'nullable|boolean',
+            'preco' => 'required|numeric',  // Validando o campo 'preco'
+            'quantidade' => 'required|integer', // Validando o campo 'quantidade'
         ]);
     
-        // Salvar os dados no banco
+        // Salvar o produto no banco de dados
         Produto::create([
             'nome' => $validatedData['nome'],
             'descricao' => $validatedData['descricao'] ?? null,
-            'comprar' => $request->has('comprar'), // Checkbox retorna verdadeiro se marcado
+            'preco' => $validatedData['preco'],  // Armazenando o preço
+            'quantidade' => $validatedData['quantidade'],  // Armazenando a quantidade
         ]);
     
         // Redirecionar com mensagem de sucesso
         return redirect()->route('admin.produto.index')->with('success', 'Produto criado com sucesso!');
     }
+
     // Exibir um produto específico
     public function show(Produto $produto)
     {
@@ -55,14 +58,24 @@ class ProdutoController extends Controller
     // Atualizar os dados de um produto
     public function update(Request $request, Produto $produto)
     {
+        // Validação
         $request->validate([
             'nome' => 'required|string|max:255',
             'descricao' => 'nullable|string',
-            'comprar' => 'required|boolean',
+            'preco' => 'required|numeric',
+            'quantidade' => 'required|integer',
         ]);
-
-        $produto->update($request->all());
-
+    
+        // Atualizar os campos manualmente
+        $produto->nome = $request->input('nome');
+        $produto->descricao = $request->input('descricao');
+        $produto->preco = $request->input('preco');
+        $produto->quantidade = $request->input('quantidade');
+    
+        // Salvar no banco de dados
+        $produto->save();
+    
+        // Redirecionar com mensagem de sucesso
         return redirect()->route('admin.produto.index')->with('success', 'Produto atualizado com sucesso!');
     }
 

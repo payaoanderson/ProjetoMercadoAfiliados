@@ -23,13 +23,13 @@ class UsuarioController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required|string|max:255',
+            'nome' => 'required|string|max:255|nullable',
             'email' => 'required|email|unique:users',
             'password' => 'required|string|min:8|confirmed',
         ]);
 
         User::create([
-            'name' => $request->name,
+            'nome' => $request->nome,
             'email' => $request->email,
             'password' => bcrypt($request->password),
         ]);
@@ -56,7 +56,7 @@ class UsuarioController extends Controller
     $user = User::findOrFail($id);
 
     $validated = $request->validate([
-        'name' => 'required|string|max:255',
+        'nome' => 'required|string|max:255|nullable',
         'email' => 'required|email|max:255|unique:users,email,' . $id,
         'password' => 'nullable|string|min:8|confirmed',
     ]);
@@ -65,7 +65,7 @@ class UsuarioController extends Controller
         $user->password = bcrypt($validated['password']);
     }
 
-    $user->name = $validated['name'];
+    $user->nome = $validated['nome'];
     $user->email = $validated['email'];
     $user->save();
 

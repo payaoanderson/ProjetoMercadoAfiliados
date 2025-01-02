@@ -163,18 +163,17 @@
     <!-- Menu Lateral -->
     <div class="sidebar">
         <div class="sidebar-header">
-            <h4>Admin Dashboard</h4>
+            <h4><i class="fas fa-home"></i> Admin Dashboard</h4>
         </div>
-
         <!-- Itens do menu -->
         <ul>
-            <li><a href="#" class="{{ request()->is('admin/dashboard') ? 'active' : '' }}"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+            <li><a href="{{route("admin.dashboard")}}" class="{{ request()->is('admin/dashboard') ? 'active' : '' }}"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
             <li><a href="{{route("admin.usuarios.index")}}" class="{{ request()->is('admin/usuarios') ? 'active' : '' }}"><i class="fas fa-users"></i> Usuários</a></li>
             <li><a href="{{ route('admin.produto.index') }}" class="{{ request()->is('admin/produtos') ? 'active' : '' }}"><i class="fas fa-cogs"></i> Produtos</a></li>
-            <li><a href="#" class="{{ request()->is('admin/vendas') ? 'active' : '' }}"><i class="fas fa-chart-line"></i> Vendas</a></li>
-            <li><a href="#" class="{{ request()->is('admin/relatorios') ? 'active' : '' }}"><i class="fas fa-file-alt"></i> Relatórios</a></li>
-            <li><a href="#" class="{{ request()->is('admin/configuracoes') ? 'active' : '' }}"><i class="fas fa-cogs"></i> Configurações</a></li>
+            <li><a href="{{route("admin.sales.index")}}" class="{{ request()->is('admin/vendas') ? 'active' : '' }}"><i class="fas fa-chart-line"></i> Vendas</a></li>
             <li><a href="#" class="{{ request()->is('admin/compras') ? 'active' : '' }}"><i class="fas fa-shopping-cart"></i> Compras</a></li>
+            <li><a href="#" class="{{ request()->is('admin/configuracoes') ? 'active' : '' }}"><i class="fas fa-cogs"></i> Configurações</a></li>
+            <li><a href="#" class="{{ request()->is('admin/relatorios') ? 'active' : '' }}"><i class="fas fa-file-alt"></i> Relatórios</a></li>
             <li><a href="#" class="{{ request()->is('admin/ajuda') ? 'active' : '' }}"><i class="fas fa-question-circle"></i> Ajuda</a></li>
             <li><a href="#" class="{{ request()->is('admin/suporte') ? 'active' : '' }}"><i class="fas fa-headset"></i> Suporte</a></li>
             <li><a href="#" class="{{ request()->is('admin/patrocinadores') ? 'active' : '' }}"><i class="fas fa-handshake"></i> Patrocinadores</a></li>
