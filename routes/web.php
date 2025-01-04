@@ -8,6 +8,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProdutoController;
 use App\Http\Controllers\SaleController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\CompraController;
+use App\Http\Controllers\ConfiguracaoController;
+
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 Route::get('/', [PaginaEstaticasController::class, 'welcome'])->name("welcome");
@@ -44,7 +47,17 @@ Route::put('/vendas/{sale}', [SaleController::class, 'update'])->name('admin.sal
 Route::delete('/vendas/{sale}', [SaleController::class, 'destroy'])->name('admin.sales.destroy');
 
 
+Route::get('/compras', [CompraController::class, 'index'])->name('admin.compras.index');
+Route::get('/compras/create', [CompraController::class, 'create'])->name('admin.compras.create');
+Route::post('/compras', [CompraController::class, 'store'])->name('admin.compras.store');
+Route::get('/compras/{id}/edit', [CompraController::class, 'edit'])->name('admin.compras.edit');
+Route::put('/compras/{id}', [CompraController::class, 'update'])->name('admin.compras.update');
+Route::delete('/compras/{id}', [CompraController::class, 'destroy'])->name('admin.compras.destroy');
 
 
-
+Route::get('config', [ConfiguracaoController::class, 'index'])->name('admin.configuracao.index');
+Route::get('config/create', [ConfiguracaoController::class, 'create'])->name('admin.configuracao.create');
+Route::post('config', [ConfiguracaoController::class, 'store'])->name('admin.configuracao.store');
+Route::get('config/{id}/edit', [ConfiguracaoController::class, 'edit'])->name('admin.configuracao.edit');
+Route::put('config/{id}', [ConfiguracaoController::class, 'update'])->name('admin.configuracao.update');
 

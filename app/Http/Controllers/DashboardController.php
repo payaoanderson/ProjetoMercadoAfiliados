@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\Produto;
 use App\Models\Sale;
+use App\Models\Compra;
 
 class DashboardController extends Controller
 {
@@ -13,7 +14,7 @@ class DashboardController extends Controller
         $userCount = User::count();
         $productCount = Produto::count();
         $saleCount = Sale::count();
-
-        return view('admin.dashboard', compact('userCount', 'productCount', 'saleCount'));
+        $compraCount = Compra::count();
+        return view('admin.dashboard', compact('userCount', 'productCount', 'saleCount', 'compraCount'));
     }
 }

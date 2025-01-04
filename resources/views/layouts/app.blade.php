@@ -171,8 +171,8 @@
             <li><a href="{{route("admin.usuarios.index")}}" class="{{ request()->is('admin/usuarios') ? 'active' : '' }}"><i class="fas fa-users"></i> Usuários</a></li>
             <li><a href="{{ route('admin.produto.index') }}" class="{{ request()->is('admin/produtos') ? 'active' : '' }}"><i class="fas fa-cogs"></i> Produtos</a></li>
             <li><a href="{{route("admin.sales.index")}}" class="{{ request()->is('admin/vendas') ? 'active' : '' }}"><i class="fas fa-chart-line"></i> Vendas</a></li>
-            <li><a href="#" class="{{ request()->is('admin/compras') ? 'active' : '' }}"><i class="fas fa-shopping-cart"></i> Compras</a></li>
-            <li><a href="#" class="{{ request()->is('admin/configuracoes') ? 'active' : '' }}"><i class="fas fa-cogs"></i> Configurações</a></li>
+            <li><a href="{{ route("admin.compras.index")}}" class="{{ request()->is('admin/compras') ? 'active' : '' }}"><i class="fas fa-shopping-cart"></i> Compras</a></li>
+            <li><a href="{{route("admin.configuracao.index")}}" class="{{ request()->is('admin/configuracoes') ? 'active' : '' }}"><i class="fas fa-cogs"></i> Configurações</a></li>
             <li><a href="#" class="{{ request()->is('admin/relatorios') ? 'active' : '' }}"><i class="fas fa-file-alt"></i> Relatórios</a></li>
             <li><a href="#" class="{{ request()->is('admin/ajuda') ? 'active' : '' }}"><i class="fas fa-question-circle"></i> Ajuda</a></li>
             <li><a href="#" class="{{ request()->is('admin/suporte') ? 'active' : '' }}"><i class="fas fa-headset"></i> Suporte</a></li>
