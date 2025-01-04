@@ -9,17 +9,34 @@ use App\Http\Controllers\ProdutoController;
 use App\Http\Controllers\SaleController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\CompraController;
+use App\Http\Controllers\RelatorioController;
 use App\Http\Controllers\ConfiguracaoController;
-
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CookieController;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
+
+
+
+
 
 Route::get('/', [PaginaEstaticasController::class, 'welcome'])->name("welcome");
 
 // Rota corrigida
 Route::get('/politica', [PaginaEstaticasController::class, 'index'])->name("politica");
 
-
+Route::middleware(['auth'])->group(function () {
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
+
+Route::get('/ajuda', function () {
+    return view('admin.ajuda.index');
+})->name('admin.ajuda.index');
+
+
+Route::get('/suporte', function () {
+    return view('admin.suporte.index');
+})->name('admin.suporte.index');
+
+
 
 Route::get('/usuarios', [UsuarioController::class, 'index'])->name('admin.usuarios.index');
 Route::get('/usuarios/criar', [UsuarioController::class, 'create'])->name('admin.usuarios.create');
@@ -60,4 +77,25 @@ Route::get('config/create', [ConfiguracaoController::class, 'create'])->name('ad
 Route::post('config', [ConfiguracaoController::class, 'store'])->name('admin.configuracao.store');
 Route::get('config/{id}/edit', [ConfiguracaoController::class, 'edit'])->name('admin.configuracao.edit');
 Route::put('config/{id}', [ConfiguracaoController::class, 'update'])->name('admin.configuracao.update');
+
+
+
+Route::get('/relatorios', [RelatorioController::class, 'index'])->name('admin.relatorio.index');
+Route::get('/relatorios/create', [RelatorioController::class, 'create'])->name('admin.relatorio.create');
+Route::post('/relatorios', [RelatorioController::class, 'store'])->name('admin.relatorio.store');
+Route::get('/relatorios/{id}/edit', [RelatorioController::class, 'edit'])->name('admin.relatorio.edit');
+Route::put('/relatorios/{id}', [RelatorioController::class, 'update'])->name('admin.relatorio.update');
+Route::delete('/relatorios/{id}', [RelatorioController::class, 'destroy'])->name('admin.relatorio.destroy');
+
+
+
+});
+
+
+Route::get('login', [AuthController::class, 'showLoginForm'])->name('login');
+Route::post('login', [AuthController::class, 'login'])->name('login.submit');
+Route::get('register', [AuthController::class, 'showRegistrationForm'])->name('register');
+Route::post('register', [AuthController::class, 'register'])->name('register.submit');
+Route::post('logout', [AuthController::class, 'logout'])->name('logout');
+Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 

@@ -80,9 +80,16 @@ class ProdutoController extends Controller
     }
 
     // Deletar um produto
-    public function destroy(Produto $produto)
+    public function destroy($id)
     {
+        $produto = Produto::findOrFail($id);
+    
+        // Remove as vendas associadas ao produto
+        $produto->vendas()->delete();
+    
+        // Exclui o produto
         $produto->delete();
-        return redirect()->route('admin.produto.index')->with('success', 'Produto excluído com sucesso!');
+    
+        return redirect()->route('admin.produto.index')->with('success', 'Produto excluído com sucesso.');
     }
 }

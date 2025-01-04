@@ -8,6 +8,7 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome para ícones -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    
     <style>
         /* Estilos globais */
         body {
@@ -157,6 +158,9 @@
             }
         }
     </style>
+
+
+
 </head>
 <body class="{{ session('theme', 'light') }}">
 
@@ -173,17 +177,17 @@
             <li><a href="{{route("admin.sales.index")}}" class="{{ request()->is('admin/vendas') ? 'active' : '' }}"><i class="fas fa-chart-line"></i> Vendas</a></li>
             <li><a href="{{ route("admin.compras.index")}}" class="{{ request()->is('admin/compras') ? 'active' : '' }}"><i class="fas fa-shopping-cart"></i> Compras</a></li>
             <li><a href="{{route("admin.configuracao.index")}}" class="{{ request()->is('admin/configuracoes') ? 'active' : '' }}"><i class="fas fa-cogs"></i> Configurações</a></li>
-            <li><a href="#" class="{{ request()->is('admin/relatorios') ? 'active' : '' }}"><i class="fas fa-file-alt"></i> Relatórios</a></li>
-            <li><a href="#" class="{{ request()->is('admin/ajuda') ? 'active' : '' }}"><i class="fas fa-question-circle"></i> Ajuda</a></li>
-            <li><a href="#" class="{{ request()->is('admin/suporte') ? 'active' : '' }}"><i class="fas fa-headset"></i> Suporte</a></li>
+            <li><a href="{{ route("admin.relatorio.index")}}" class="{{ request()->is('admin/relatorios') ? 'active' : '' }}"><i class="fas fa-file-alt"></i> Relatórios</a></li>
+            <li><a href="{{route("admin.ajuda.index")}}" class="{{ request()->is('admin/ajuda') ? 'active' : '' }}"><i class="fas fa-question-circle"></i> Ajuda</a></li>
+            <li><a href="{{route("admin.suporte.index")}}" class="{{ request()->is('admin/suporte') ? 'active' : '' }}"><i class="fas fa-headset"></i> Suporte</a></li>
             <li><a href="#" class="{{ request()->is('admin/patrocinadores') ? 'active' : '' }}"><i class="fas fa-handshake"></i> Patrocinadores</a></li>
         </ul>
 
         <!-- Botões de Login, Registrar e Sair -->
         <div class="auth-buttons">
-            <a href="#" class="btn-login"><i class="fas fa-sign-in-alt"></i> Login</a>
-            <a href="#" class="btn-register"><i class="fas fa-user-plus"></i> Registrar</a>
-            <a href="#" class="btn-logout"><i class="fas fa-sign-out-alt"></i> Sair</a>
+            <a href="{{route("login")}}" class="btn-login"><i class="fas fa-sign-in-alt"></i> Login</a>
+            <a href="{{route("register")}}" class="btn-register"><i class="fas fa-user-plus"></i> Registrar</a>
+            <a href="{{route('logout')}}" class="btn-logout"><i class="fas fa-sign-out-alt"></i> Sair</a>
         </div>
     </div>
 
@@ -191,6 +195,41 @@
     <div class="main-content">
         @yield('content')  <!-- Aqui será renderizado o conteúdo de cada página -->
     </div>
+
+     <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="{{ url('/') }}">Minha Conta</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    @auth
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Bem-vindo, {{ auth()->user()->name }}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('logout') }}"
+                               onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                Sair
+                            </a>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                @csrf
+                            </form>
+                        </li>
+                    @else
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('login') }}">Login</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('register') }}">Registrar</a>
+                        </li>
+                    @endauth
+                </ul>
+            </div>
+        </div>
+    </nav>
+
 
 
     <!-- Inclua o JS do Bootstrap -->
