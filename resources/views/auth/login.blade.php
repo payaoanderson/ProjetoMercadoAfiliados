@@ -7,7 +7,7 @@
             <div class="card">
                 <div class="card-header bg-primary text-white">Login</div>
                 <div class="card-body">
-                    <form method="POST" action="{{ route('login.submit') }}">
+                    <form method="POST" action="{{ route('login.submit') }}" id="loginForm">
                         @csrf
                         
                         <div class="form-group">
@@ -27,7 +27,10 @@
                         </div>
 
                         <div class="form-group">
-                            <button type="submit" class="btn btn-primary btn-block">Entrar</button>
+                            <button type="submit" class="btn btn-primary btn-block" id="submitButton">
+                                <span id="buttonText">Entrar</span>
+                                <span id="loadingSpinner" class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
+                            </button>
                         </div>
                     </form>
                     <p class="text-center mt-2">
@@ -38,4 +41,17 @@
         </div>
     </div>
 </div>
+
+<script>
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+        const submitButton = document.getElementById('submitButton');
+        const buttonText = document.getElementById('buttonText');
+        const loadingSpinner = document.getElementById('loadingSpinner');
+        
+        // Disable the button and show loading spinner
+        submitButton.disabled = true;
+        buttonText.classList.add('d-none');
+        loadingSpinner.classList.remove('d-none');
+    });
+</script>
 @endsection

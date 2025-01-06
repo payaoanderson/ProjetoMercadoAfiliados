@@ -54,7 +54,7 @@ class AuthController extends Controller
 
         Auth::login($user);
 
-        return redirect()->route('admin.dashboard');
+        return redirect()->route('login');
     }
 
     // Realiza o logout
