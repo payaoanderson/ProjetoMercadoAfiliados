@@ -7,6 +7,7 @@ use App\Models\Sale;
 use App\Models\Compra;
 use App\Models\Configuracao;
 use App\Models\Relatorio;
+use App\Models\Patrocinador;
 
 class DashboardController extends Controller
 {
@@ -19,6 +20,7 @@ class DashboardController extends Controller
         $compraCount = Compra::count();
         $configuracaoCount = Configuracao::count();
         $relatorioCount = Relatorio::count();
-        return view('admin.dashboard', compact('userCount', 'productCount', 'saleCount', 'compraCount', 'configuracaoCount', 'relatorioCount'));
+        $patrocinadorCount = Patrocinador::count();
+        return view('admin.dashboard', compact('userCount', 'productCount', 'saleCount', 'compraCount', 'configuracaoCount', 'relatorioCount', "patrocinadorCount"));
     }
 }

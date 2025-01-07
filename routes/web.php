@@ -6,6 +6,7 @@ use App\Http\Controllers\UsuarioController;
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProdutoController;
+use App\Http\Controllers\PatrocinadorController;
 use App\Http\Controllers\SaleController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\CompraController;
@@ -87,6 +88,14 @@ Route::get('/relatorios/{id}/edit', [RelatorioController::class, 'edit'])->name(
 Route::put('/relatorios/{id}', [RelatorioController::class, 'update'])->name('admin.relatorio.update');
 Route::delete('/relatorios/{id}', [RelatorioController::class, 'destroy'])->name('admin.relatorio.destroy');
 
+
+Route::get('/patrocinadores', [PatrocinadorController::class, 'index'])->name('admin.patrocinadores.index');
+Route::get('/patrocinadores/create', [PatrocinadorController::class, 'create'])->name('admin.patrocinadores.create');
+Route::post('/patrocinadores', [PatrocinadorController::class, 'store'])->name('admin.patrocinadores.store');
+Route::get('/patrocinadores/{patrocinador}', [PatrocinadorController::class, 'show'])->name('admin.patrocinadores.show');
+Route::get('/patrocinadores/{patrocinador}/edit', [PatrocinadorController::class, 'edit'])->name('admin.patrocinadores.edit');
+Route::put('/patrocinadores/{patrocinador}', [PatrocinadorController::class, 'update'])->name('admin.patrocinadores.update');
+Route::delete('/patrocinadores/{patrocinador}', [PatrocinadorController::class, 'destroy'])->name('admin.patrocinadores.destroy');
 
 
 });

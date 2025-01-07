@@ -75,6 +75,19 @@
                 </div>
             </div>
         </div>
+
+        <!-- Card de Patrocinadores -->
+        <div class="col-md-3">
+            <div class="card text-white bg-danger mb-3">
+                <div class="card-header">Patrocinadores</div>
+                <div class="card-body">
+                    <h5 class="card-title">Total de Patrocinadores</h5>
+                    <p class="card-text">{{ $patrocinadorCount }}</p>
+                    <a href="{{ route('admin.patrocinadores.index') }}" class="btn btn-light">Ir para Patrocinadores</a>
+                </div>
+            </div>
+        </div>
+
     </div>
 </div>
 @endsection

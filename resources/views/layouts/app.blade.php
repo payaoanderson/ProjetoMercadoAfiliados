@@ -159,8 +159,6 @@
         }
     </style>
 
-
-
 </head>
 <body class="{{ session('theme', 'light') }}">
 
@@ -180,7 +178,8 @@
             <li><a href="{{ route("admin.relatorio.index")}}" class="{{ request()->is('admin/relatorios') ? 'active' : '' }}"><i class="fas fa-file-alt"></i> Relatórios</a></li>
             <li><a href="{{route("admin.ajuda.index")}}" class="{{ request()->is('admin/ajuda') ? 'active' : '' }}"><i class="fas fa-question-circle"></i> Ajuda</a></li>
             <li><a href="{{route("admin.suporte.index")}}" class="{{ request()->is('admin/suporte') ? 'active' : '' }}"><i class="fas fa-headset"></i> Suporte</a></li>
-            <li><a href="#" class="{{ request()->is('admin/patrocinadores') ? 'active' : '' }}"><i class="fas fa-handshake"></i> Patrocinadores</a></li>
+            <li><a href="{{route("admin.patrocinadores.index")}}" class="{{ request()->is('admin/patrocinadores') ? 'active' : '' }}"><i class="fas fa-handshake"></i> Patrocinadores</a></li>
+            <li><a href="#" class="{{ request()->is('admin/donacoes') ? 'active' : '' }}"><i class="fas fa-donate"></i> Doações</a></li>
         </ul>
 
         <!-- Botões de Login, Registrar e Sair -->
@@ -196,7 +195,7 @@
         @yield('content')  <!-- Aqui será renderizado o conteúdo de cada página -->
     </div>
 
-     <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
             <a class="navbar-brand" href="{{ url('/') }}">Minha Conta</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -229,8 +228,6 @@
             </div>
         </div>
     </nav>
-
-
 
     <!-- Inclua o JS do Bootstrap -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
