@@ -179,7 +179,7 @@
             <li><a href="{{route("admin.ajuda.index")}}" class="{{ request()->is('admin/ajuda') ? 'active' : '' }}"><i class="fas fa-question-circle"></i> Ajuda</a></li>
             <li><a href="{{route("admin.suporte.index")}}" class="{{ request()->is('admin/suporte') ? 'active' : '' }}"><i class="fas fa-headset"></i> Suporte</a></li>
             <li><a href="{{route("admin.patrocinadores.index")}}" class="{{ request()->is('admin/patrocinadores') ? 'active' : '' }}"><i class="fas fa-handshake"></i> Patrocinadores</a></li>
-            <li><a href="#" class="{{ request()->is('admin/donacoes') ? 'active' : '' }}"><i class="fas fa-donate"></i> Doações</a></li>
+            <li><a href="{{route("admin.donations.index")}}" class="{{ request()->is('admin/donacoes') ? 'active' : '' }}"><i class="fas fa-donate"></i> Doações</a></li>
         </ul>
 
         <!-- Botões de Login, Registrar e Sair -->

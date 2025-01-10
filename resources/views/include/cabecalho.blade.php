@@ -16,7 +16,7 @@
         <div class="navegation">
           <div>
             <ul>
-              <img src="{{ asset('./img/logo.png')}}"  class="mx-auto d-block" alt="" width="150" />
+              <img src="{{ asset('./img/logo.webp')}}"  class="mx-auto d-block" alt="" width="150" />
             </ul>
           </div>
         </div>

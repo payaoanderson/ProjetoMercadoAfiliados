@@ -9,7 +9,9 @@ use App\Http\Controllers\ProdutoController;
 use App\Http\Controllers\PatrocinadorController;
 use App\Http\Controllers\SaleController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\QrCodeController;
 use App\Http\Controllers\CompraController;
+use App\Http\Controllers\DonationController;
 use App\Http\Controllers\RelatorioController;
 use App\Http\Controllers\ConfiguracaoController;
 use App\Http\Controllers\AuthController;
@@ -100,6 +102,15 @@ Route::delete('/patrocinadores/{patrocinador}', [PatrocinadorController::class, 
 
 });
 
+
+
+Route::get('donations', [DonationController::class, 'index'])->name('admin.donations.index');
+Route::get('donations/create', [DonationController::class, 'create'])->name('admin.donations.create');
+Route::post('donations', [DonationController::class, 'store'])->name('admin.donations.store');
+Route::get('donations/{id}/edit', [DonationController::class, 'edit'])->name('admin.donations.edit');
+Route::put('donations/{id}', [DonationController::class, 'update'])->name('admin.donations.update');
+Route::delete('donations/{id}', [DonationController::class, 'destroy'])->name('admin.donations.destroy');
+Route::get('donations/{id}/qrcode', [DonationController::class, 'generateQrCode'])->name('admin.donations.qrcode');
 
 Route::get('login', [AuthController::class, 'showLoginForm'])->name('login');
 Route::post('login', [AuthController::class, 'login'])->name('login.submit');
