@@ -29,8 +29,10 @@
                 </tr>
             @endforeach
         </tbody>
+        <a href="{{ route('admin.configuracao.create') }}" class="btn btn-primary mt-3">Criar Nova Configuração</a>
     </table>
 
-    <a href="{{ route('admin.configuracao.create') }}" class="btn btn-primary mt-3">Criar Nova Configuração</a>
+    
+    @include("include.rodape")
 </div>
 @endsection

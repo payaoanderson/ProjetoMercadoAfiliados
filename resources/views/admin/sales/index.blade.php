@@ -42,6 +42,8 @@
         </tbody>
     </table>
 
+    
     {{ $sales->links() }}
+    @include("include.rodape")
 </div>
 @endsection

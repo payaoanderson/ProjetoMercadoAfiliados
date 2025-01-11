@@ -3,7 +3,7 @@
 @section('content')
     <h1>Lista de Usuários</h1>
     <a href="{{ route('admin.usuarios.create') }}" class="btn btn-primary mb-3">Criar Usuário</a>
-<link rel="stylesheet" href="./css/main.css">
+{{-- <link rel="stylesheet" href="./css/main.css"> --}}
     @if(session('success'))
         <div class="alert alert-success">{{ session('success') }}</div>
     @endif
@@ -33,7 +33,7 @@
             @endforeach
         </tbody>
     </table>
-    
-    
     @include("include.rodape")
+    
+    
     @endsection

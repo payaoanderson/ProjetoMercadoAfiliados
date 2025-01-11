@@ -49,5 +49,7 @@
 
     <h3 id="patrocinadores">Patrocinadores</h3>
     <p>Saiba mais sobre como se tornar um patrocinador e apoiar a nossa plataforma.</p>
+
+    @include("include.rodape")
 </div>
 @endsection

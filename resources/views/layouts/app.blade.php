@@ -152,7 +152,7 @@
             .sidebar {
                 width: 200px;
             }
-
+            
             .main-content {
                 margin-left: 200px;
             }
@@ -161,7 +161,7 @@
 
 </head>
 <body class="{{ session('theme', 'light') }}">
-
+    
     <!-- Menu Lateral -->
     <div class="sidebar">
         <div class="sidebar-header">
@@ -181,7 +181,7 @@
             <li><a href="{{route("admin.patrocinadores.index")}}" class="{{ request()->is('admin/patrocinadores') ? 'active' : '' }}"><i class="fas fa-handshake"></i> Patrocinadores</a></li>
             <li><a href="{{route("admin.donations.index")}}" class="{{ request()->is('admin/donacoes') ? 'active' : '' }}"><i class="fas fa-donate"></i> Doações</a></li>
         </ul>
-
+        
         <!-- Botões de Login, Registrar e Sair -->
         <div class="auth-buttons">
             <a href="{{route("login")}}" class="btn-login"><i class="fas fa-sign-in-alt"></i> Login</a>
@@ -189,12 +189,12 @@
             <a href="{{route('logout')}}" class="btn-logout"><i class="fas fa-sign-out-alt"></i> Sair</a>
         </div>
     </div>
-
+    
     <!-- Conteúdo Principal -->
     <div class="main-content">
         @yield('content')  <!-- Aqui será renderizado o conteúdo de cada página -->
     </div>
-
+    
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
             <a class="navbar-brand" href="{{ url('/') }}">Minha Conta</a>
@@ -203,35 +203,55 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <!-- Exibição da data e hora -->
+                        <span class="navbar-text" id="datetime"></span>
+                    </li>
                     @auth
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Bem-vindo, {{ auth()->user()->name }}</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('logout') }}"
-                               onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                Sair
-                            </a>
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                @csrf
-                            </form>
-                        </li>
-                    @else
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('login') }}">Login</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('register') }}">Registrar</a>
-                        </li>
-                    @endauth
-                </ul>
-            </div>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Bem-vindo, {{ auth()->user()->name }}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('logout') }}"
+                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                        Sair
+                    </a>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        @csrf
+                    </form>
+                </li>
+                @else
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('login') }}">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('register') }}">Registrar</a>
+                </li>
+                @endauth
+            </ul>
         </div>
-    </nav>
+    </div>
+</nav>
 
-    <!-- Inclua o JS do Bootstrap -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+    // Função para atualizar a data e a hora
+    function updateDateTime() {
+        const datetimeElement = document.getElementById('datetime');
+            const now = new Date();
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit' };
+            datetimeElement.textContent = now.toLocaleString('pt-BR', options);
+        }
+        
+        // Atualizar imediatamente e a cada segundo
+        updateDateTime();
+        setInterval(updateDateTime, 1000);
+        </script>
+
+
+
+<!-- Inclua o JS do Bootstrap -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

@@ -43,8 +43,8 @@
             @endforeach
         </tbody>
     </table>
+    @include("include.rodape")
 </div>
 
-@include("include.rodape")
 
 @endsection

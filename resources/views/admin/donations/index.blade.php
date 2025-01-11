@@ -33,11 +33,12 @@
                             @method('DELETE')
                             <button type="submit" class="btn btn-danger btn-sm">Excluir</button>
                         </form>
-                        <a href="{{ route('admin.donations.qrcode', $donation->id) }}" class="btn btn-info btn-sm" target="_blank">Ver QR Code</a>
+                        <a href="{{ route('donation.generate', $donation->id) }}" class="btn btn-primary">Gerar QR Code</a>
                     </td>
                 </tr>
             @endforeach
         </tbody>
     </table>
+    @include("include.rodape")
 </div>
 @endsection

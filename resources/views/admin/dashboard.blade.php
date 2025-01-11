@@ -88,6 +88,20 @@
             </div>
         </div>
 
+        <!-- Card de Doações -->
+        <div class="col-md-3">
+            <div class="card text-white bg-purple mb-3" style="background-color: #6f42c1;">
+                <div class="card-header">Doações</div>
+                <div class="card-body">
+                    <h5 class="card-title">Total de Doações</h5>
+                    <p class="card-text">{{ $donationsCount }}</p>
+                    <a href="{{ route('admin.donations.index') }}" class="btn btn-light">Ir para Doações</a>
+                </div>
+            </div>
+        </div>
+
+        
     </div>
+    @include("include.rodape")
 </div>
 @endsection

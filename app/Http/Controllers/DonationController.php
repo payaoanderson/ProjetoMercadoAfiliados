@@ -76,34 +76,35 @@ class DonationController extends Controller
    
         // Outros métodos...
     
-        public function generateQrCode($id)
+    
+        // Método para gerar o QR Code
+        public function generate(Request $request, $id)
         {
-            // Encontre a doação com base no ID
+            // Encontre a doação no banco de dados
             $donation = Donation::findOrFail($id);
-            
-            // Chave PIX - altere conforme necessário
-            $pixKey = 'andersonpayao018@gmail.com';
+    
+            // Defina sua chave PIX (substitua pelo seu e-mail)
+            $pixKey = 'andersonpayao018@gmail.com'; // Substitua pelo seu e-mail (chave PIX válida)
             
             // Formatar o valor da doação
-            $value = number_format($donation->value, 2, '', '');
-            
-            // Gerar o payload para o QR Code com base no padrão do PIX
+            $value = number_format($donation->value, 2, '.', '');
+    
+            // Criar o payload para o QR Code
             $payload = "00020101021226820014br.gov.bcb.pix0114{$pixKey}520400005303986540{$value}5802BR5925Doação via QR Code6304";
     
-            // Criar o QR Code com a biblioteca Endroid
+            // Criar o QR Code
             $qrCode = new QrCode($payload);
+         
     
-    
-            // Usar o writer para gerar a imagem em PNG
+            // Gerar o QR Code no formato PNG
             $writer = new PngWriter();
-            $image = $writer->write($qrCode);
+            $result = $writer->write($qrCode);
     
-            // Retornar o QR Code como imagem PNG
-            return response($image->getString(), 200)
-                ->header('Content-Type', 'image/png');
+            // Retornar o QR Code como imagem
+            return response($result->getString(), 200)->header('Content-Type', 'image/png');
         }
-    
+    }
         // Outros métodos...
     
     
-}
+
