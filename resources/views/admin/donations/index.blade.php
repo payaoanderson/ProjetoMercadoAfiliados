@@ -33,7 +33,7 @@
                             @method('DELETE')
                             <button type="submit" class="btn btn-danger btn-sm">Excluir</button>
                         </form>
-                        <a href="{{ route('donation.generate', $donation->id) }}" class="btn btn-primary">Gerar QR Code</a>
+                        <a href="{{ route('admin.donation.generate', $donation->id) }}" class="btn btn-primary">Gerar QR Code</a>
                     </td>
                 </tr>
             @endforeach

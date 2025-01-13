@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Donation;
+use Endroid\QrCode\Label\Margin\Margin;
 use Illuminate\Http\Request;
 use Endroid\QrCode\QrCode;
 use Endroid\QrCode\Writer\PngWriter;
@@ -88,13 +89,17 @@ class DonationController extends Controller
             
             // Formatar o valor da doação
             $value = number_format($donation->value, 2, '.', '');
-    
+
+
+            
+
+            
             // Criar o payload para o QR Code
-            $payload = "00020101021226820014br.gov.bcb.pix0114{$pixKey}520400005303986540{$value}5802BR5925Doação via QR Code6304";
+            $payload = "00020126330014br.gov.bcb.pix011146285635862520400005303986540510.005802BR5925ANDERSON FONSECA DIAS PAY6009Sao Paulo62290525REC6785745D4AEAE3833741476304C22D";
     
             // Criar o QR Code
             $qrCode = new QrCode($payload);
-         
+    
     
             // Gerar o QR Code no formato PNG
             $writer = new PngWriter();

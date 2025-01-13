@@ -110,7 +110,7 @@ Route::post('donations', [DonationController::class, 'store'])->name('admin.dona
 Route::get('donations/{id}/edit', [DonationController::class, 'edit'])->name('admin.donations.edit');
 Route::put('donations/{id}', [DonationController::class, 'update'])->name('admin.donations.update');
 Route::delete('donations/{id}', [DonationController::class, 'destroy'])->name('admin.donations.destroy');
-Route::get('/donation/{id}/generate-qrcode', [DonationController::class, 'generate'])->name('donation.generate');
+Route::get('/donation/{id}/generate-qrcode', [DonationController::class, 'generate'])->name('admin.donation.generate');
 
 Route::get('login', [AuthController::class, 'showLoginForm'])->name('login');
 Route::post('login', [AuthController::class, 'login'])->name('login.submit');
